@@ -13,13 +13,13 @@ class Library:
         self.next_id = 1  # To generate unique book ids
 
     # Add a book to the library
-    def addBook(self, title, author):
+    def add_book(self, title, author):
         book = Book(self.next_id, title, author)
         self.books.append(book)
         self.next_id += 1  # Increment the ID for the next book
 
     # Remove a book from the library by its ID
-    def removeBook(self, book_id):
+    def remove_book(self, book_id):
         for book in self.books:
             if book.book_id == book_id:
                 self.books.remove(book)
@@ -28,7 +28,7 @@ class Library:
         print(f"Book with ID: {book_id} not found.\n")
 
     # Search for books by title
-    def searchBookByTitle(self, title):
+    def search_book_by_title(self, title):
         found_books = [book for book in self.books if title.lower() in book.title.lower()]
 
         if not found_books:
@@ -38,7 +38,7 @@ class Library:
         return found_books
 
     # Display all books in the library in tabular format
-    def listBooks(self):
+    def list_books(self):
         if not self.books:
             print("No books in the library.\n")
             return
@@ -51,13 +51,13 @@ class Library:
 library = Library()
 
 # Static 3 books to display initially
-library.addBook("The Great Gatsby", "F. Scott Fitzgerald")
-library.addBook("To Kill a Mockingbird", "Harper Lee")
-library.addBook("1984", "George Orwell")
+library.add_book("The Great Gatsby", "F. Scott Fitzgerald")
+library.add_book("To Kill a Mockingbird", "Harper Lee")
+library.add_book("1984", "George Orwell")
 
 # Display static data initially
 print("Initial Library Data:")
-library.listBooks()
+library.list_books()
 
 # Main loop for user interaction
 while True:
@@ -74,22 +74,22 @@ while True:
         # Add a book
         title = input("Enter the title of the book: ")
         author = input("Enter the author of the book: ")
-        library.addBook(title, author)
+        library.add_book(title, author)
         print("Book added successfully.\n")
 
     elif choice == '2':
         # Remove a book by ID
-        library.listBooks()  # Show current books before asking for ID
+        library.list_books()  # Show current books before asking for ID
         try:
             book_id = int(input("Enter the ID of the book to remove: "))
-            library.removeBook(book_id)
+            library.remove_book(book_id)
         except ValueError:
             print("Invalid input. Please enter a valid book ID.\n")
 
     elif choice == '3':
         # Search books by title
         title = input("Enter a title to search for: ")
-        search_results = library.searchBookByTitle(title)
+        search_results = library.search_book_by_title(title)
         if search_results:
             print(f"Search results for '{title}':")
             book_list = [(book.book_id, book.title, book.author) for book in search_results]
@@ -98,7 +98,7 @@ while True:
     elif choice == '4':
         # Show all books
         print("Current Library Data:")
-        library.listBooks()
+        library.list_books()
 
     elif choice == '5':
         # Exit

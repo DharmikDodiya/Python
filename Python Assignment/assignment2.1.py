@@ -1,7 +1,7 @@
 import re
 from tabulate import tabulate
 
-def showDetails(data):
+def show_details(data):
     table_data = []
     table_data = [
     [cid, info['name'], info['email'], ", ".join(info['phones'])]
@@ -62,7 +62,7 @@ print("-------------------------------------------------------------------------
 #     for cid, info in contact_manager.items()
 # ]
 # print(tabulate(table_data, headers=["ID", "Name", "Email", "Phones"], tablefmt="grid"))
-showDetails(contact_manager.items())
+show_details(contact_manager.items())
 
 # ------------------- PART 2: User Input -------------------
 
@@ -129,4 +129,4 @@ print("\nContact List (User Inputs in Tabular Format)")
 #     for cid, info in contact_manager.items()
 # ]
 # print(tabulate(table_data, headers=["ID", "Name", "Email", "Phones"], tablefmt="grid"))
-showDetails(contact_manager.items())
+show_details(contact_manager.items())

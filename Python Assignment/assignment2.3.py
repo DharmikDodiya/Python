@@ -1,6 +1,6 @@
 import csv
 
-def reaCSV(file_path):
+def read_csv(file_path):
     try:
         with open(file_path, mode='r', newline='', encoding='utf-8') as file:
             csv_reader = csv.reader(file)
@@ -22,4 +22,4 @@ def reaCSV(file_path):
 # Main function
 if __name__ == "__main__":
     file_path = input("Enter the CSV file path: ")
-    reaCSV(file_path)
+    read_csv(file_path)
